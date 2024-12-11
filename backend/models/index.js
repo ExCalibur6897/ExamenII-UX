@@ -1,3 +1,6 @@
+import express from 'express';
+import { Sequelize } from 'sequelize';
+import cors from 'cors';
 'use strict';
 
 const fs = require('fs');
@@ -41,3 +44,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
