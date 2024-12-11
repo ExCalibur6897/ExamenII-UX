@@ -1,6 +1,4 @@
-import express from 'express';
-import { Sequelize } from 'sequelize';
-import cors from 'cors';
+
 'use strict';
 
 const fs = require('fs');
@@ -49,3 +47,9 @@ app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/api', require('./routes'));
+
+  app.listen(3001, () => {
+    console.log(`Server is running on port ${port}`);
+  });
